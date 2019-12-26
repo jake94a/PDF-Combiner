@@ -4,13 +4,14 @@ for each item in the list, iterate through and combine
 then give an output path for the combined pdf to be stored as
 """
 
-from PyPDF2 import *
-import tkinter as tk
+import os
+import PyPDF2
+import tkinter
+
 from tkinter import filedialog
 from tkinter import messagebox
-import os
 
-root = tk.Tk()
+root = tkinter.Tk()
 root.withdraw()
 
 
@@ -31,7 +32,7 @@ def pdf_compiler():
 
     # create the merger object
     # strict=False allows the merger to ignore white space in the pdfs being read in
-    pdf_merger = PdfFileMerger(strict=False)
+    pdf_merger = PyPDF2.PdfFileMerger(strict=False)
 
     # iterate through list of paths provided by the user and append them to the merger object
     for path in some_list_of_paths:
@@ -55,4 +56,5 @@ def pdf_compiler():
         pdf_merger.write(fileobj)
 
 
-pdf_compiler()
+if __name__ == '__main__':
+    pdf_compiler()
