@@ -43,11 +43,11 @@ def pdf_compiler():
     # verify final_destination does not exist
     # if final_destination does exist, append " (i)" to the file name
     output_path = filedialog.askdirectory(title="Select pdf output destination")
-    final_destination = f'{output_path}/ Compiled PDF.pdf'
+    final_destination = f'{output_path}/Compiled PDF.pdf'
 
     i = 1
     while os.path.exists(final_destination):
-        final_destination = f'{output_path}/ Compiled PDF ({i}).pdf'
+        final_destination = f'{output_path}/Compiled PDF ({i}).pdf'
         i += 1
 
     # open the output_path as a writeable binary (necessary due to pdfs being images instead of plain text files)
